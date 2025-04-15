@@ -72,14 +72,5 @@ def home():
 # --- Running the Application ---
 
 if __name__ == "__main__":
-    # Get port from environment variable if available (common in hosting platforms)
-    # Default to 5000 for local development
-    port = int(os.environ.get("PORT", 5000))
+    app.run()
 
-    # Run the Flask development server
-    # host='0.0.0.0' makes it accessible externally (important for hosting/Docker)
-    # debug=False is crucial for production. Set to True only for local development.
-    app.run(host='0.0.0.0', port=port, debug=False)
-    # Note: For production, it's highly recommended to use a proper WSGI server
-    # like Gunicorn or uWSGI instead of Flask's built-in development server.
-    # Example command using Gunicorn: gunicorn app:app -w 4 -b 0.0.0.0:$PORT
